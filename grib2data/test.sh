@@ -24,8 +24,11 @@ test_name=$(basename $p)
 cd $test_name
 
 
-export GRIB_DEFINITION_PATH=$p/extra_grib_defs:$grib_api_prefix/share/definitions:$grib_api_prefix/share/eccodes/definitions
-export GRIB_SAMPLES_PATH=$grib_api_prefix/ifs_samples/grib1:$grib_api_prefix/share/eccodes/ifs_samples/grib1
+unset GRID_DEFINITION_PATH
+unset GRIB_SAMPLES_PATH
+
+export ECCODES_DEFINITION_PATH=$p/extra_grib_defs:$grib_api_prefix/share/definitions:$grib_api_prefix/share/eccodes/definitions
+export ECCODES_SAMPLES_PATH=$grib_api_prefix/ifs_samples/grib1:$grib_api_prefix/share/eccodes/ifs_samples/grib1
 export PATH=$grib_api_prefix/bin:$PATH
 
 function file2list ()
